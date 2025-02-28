@@ -1,0 +1,13 @@
+<section>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 m-5">
+    @for (cat of category; track cat._id) {
+    <div class="border rounded-md overflow-hidden">
+      <img
+        class="w-full h-[250px] object-fill cursor-pointer"
+        [src]="cat.image"
+        [alt]="cat.name"
+      />
+    </div>
+    }
+  </div>
+</section>

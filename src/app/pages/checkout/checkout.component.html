@@ -1,0 +1,68 @@
+<section
+  class="w-1/2 mt-10 mx-auto border-2 bg-gray-50 border-gray-200 rounded-md p-10 shadow-lg"
+>
+  <h2 class="text-3xl text-gray-700 p-10">Checkout</h2>
+
+  <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()">
+    <div class="grid mb-2">
+      <div class="mb-2">
+        <label
+          for="details"
+          class="block mb-2 text-md font-normal text-gray-700"
+          >Address:</label
+        >
+        <textarea
+          formControlName="details"
+          id="details"
+          class="border border-gray-300 text-sm mb-1 rounded-lg block w-full p-2.5 focus:ring-blue-400 focus:border-blue-400 text-gray-500"
+        >
+        </textarea>
+      </div>
+
+      <div class="mb-2">
+        <label for="phone" class="block mb-2 text-md font-normal text-gray-700"
+          >phone:</label
+        >
+        <input
+          formControlName="phone"
+          type="tel"
+          id="phone"
+          class="border border-gray-300 text-sm mb-1 rounded-lg block w-full p-2.5 focus:ring-blue-400 focus:border-blue-400 text-gray-500"
+        />
+      </div>
+
+      <div class="mb-2">
+        <label for="city" class="block mb-2 text-md font-normal text-gray-700"
+          >city:</label
+        >
+        <input
+          formControlName="city"
+          type="text"
+          id="city"
+          class="border border-gray-300 text-sm mb-1 rounded-lg block w-full p-2.5 focus:ring-blue-400 focus:border-blue-400 text-gray-500"
+        />
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <button
+        [disabled]="checkoutForm.invalid || isLoading"
+        type="submit"
+        class="btn-main"
+      >
+        Online Payment @if(isLoading) {
+        <i class="fas fa-spin fa-spinner"></i>
+        }
+      </button>
+      <!-- <button
+        [disabled]="checkoutForm.invalid || isLoading"
+        type="submit"
+        class="btn-main"
+      >
+        Cash Payment @if(isLoading) {
+        <i class="fas fa-spin fa-spinner"></i>
+        }
+      </button> -->
+    </div>
+  </form>
+</section>

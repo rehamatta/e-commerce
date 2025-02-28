@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel' as owlCarousel;
+@use 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default' as owlTheme;
+@use 'ngx-toastr/toastr';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-main {
+  @apply disabled:bg-gray-500 text-white bg-green-600 hover:bg-green-700 font-medium transition rounded text-sm w-full sm:w-auto px-10 py-1.5 text-center
+}
+
+body {
+  font-family: "Montserrat", serif;
+}

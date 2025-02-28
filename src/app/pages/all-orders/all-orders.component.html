@@ -1,0 +1,39 @@
+<section class="bg-gray-50 rounded border shadow p-4 w-3/4 mx-auto my-10">
+  <h1 class="text-center text-3xl text-green-600 pb-10">My Orders</h1>
+
+  <div>
+    @for (order of userOrders; track order.id) {
+    <div class="border-b-2 p-4">
+      <div class="text-xl">
+        <h3 class="mb-2 text-green-600">
+          Order Date: {{ order.createdAt | date }}
+        </h3>
+        <h3 class="text-green-600">Total Price: {{ order.totalOrderPrice }}</h3>
+      </div>
+      @for (item of order.cartItems; track $index) {
+      <div class="flex justify-between items-center">
+        <div>
+          <img
+            [src]="item.product.imageCover"
+            class="w-full h-[100px] object-contain"
+            [alt]="item.product.title"
+          />
+        </div>
+        <div>
+          <div class="text-xl">
+            <h3>{{ item.price | currency : "GBP" }}</h3>
+            <h3 class="text-gray-500">
+              {{ order.shippingAddress.city }} -
+              {{ order.shippingAddress.details }}
+            </h3>
+            <h3 class="text-gray-500">
+              {{ order.shippingAddress.phone }}
+            </h3>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</section>

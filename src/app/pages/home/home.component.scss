@@ -1,0 +1,24 @@
+.filled-star {
+  color: gold;
+  cursor: pointer;
+}
+
+.empty-star {
+  color: gray;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .fixed-slider{
+    display: none;
+  }
+  .grid {
+    grid-template-columns: 1fr !important;
+    overflow: hidden;
+  }
+
+  owl-carousel-o {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}

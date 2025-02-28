@@ -1,0 +1,66 @@
+@if(cartDetails.totalCartPrice > 0) {
+<section class="bg-gray-50 rounded border shadow p-4 w-3/4 mx-auto my-10">
+  <h1 class="text-3xl text-gray-700 p-10">My Cart</h1>
+  <div class="flex justify-between items-center">
+    <span class="text-green-600 font-bold"
+      >Total Cart Price: {{ cartDetails.totalCartPrice | currency : "GBP" }}
+    </span>
+
+    <button
+      class="bg-red-600 text-white rounded py-1 px-4 hover:bg-red-500"
+      (click)="removeAllPoducts()"
+    >
+      Clear Cart
+    </button>
+  </div>
+  @for (product of cartDetails.products; track product.product.id) {
+  <div class="grid md:grid-cols-[10%_minmax(0,1fr)] mt-5 border-b">
+    <!-- image -->
+    <div>
+      <img
+        class="w-full h-[90px] object-contain"
+        [src]="product.product.imageCover"
+        [alt]="product.product.title"
+      />
+    </div>
+
+    <!-- info -->
+    <div class="flex justify-between items-center mb-5">
+      <div>
+        <h3>{{ product.product.title }}</h3>
+        <h4 class="text-green-600">
+          price:{{ product.price | currency : "GBP" }}
+        </h4>
+        <button
+          (click)="deletePorduct(product.product.id)"
+          class="border text-red-600 border-red-600 rounded p-1 mt-2"
+        >
+          <i
+            class="fas fa-trash-can text-red-600 transition-colors duration-500"
+          ></i>
+          Remove
+        </button>
+      </div>
+      <div>
+        <button (click)="updateCount(product.product.id, product.count - 1)">
+          <i class="fas fa-minus-square text-green-600 fa-xl"></i>
+        </button>
+        <span class="mx-2">{{ product.count }}</span>
+        <button (click)="updateCount(product.product.id, product.count + 1)">
+          <i class="fas fa-plus-square text-green-600 fa-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+  <button
+    class="btn-main block mt-10"
+    [routerLink]="['/checkout', cartDetails._id]"
+  >
+    checkout
+  </button>
+</section>
+
+} @else {
+<h1 class="pt-20 text-xl text-center text-gray-700">Nothing in your Cart</h1>
+}

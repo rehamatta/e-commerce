@@ -1,0 +1,13 @@
+<section>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 m-5">
+    @for (brand of brands; track brand._id) {
+    <div class="border-2 rounded-3xl overflow-hidden">
+      <img
+        class="w-full cursor-pointer"
+        [src]="brand.image"
+        [alt]="brand.name"
+      />
+    </div>
+    }
+  </div>
+</section>
