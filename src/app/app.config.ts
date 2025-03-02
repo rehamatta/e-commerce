@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
   providers: [provideAnimations(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes,
-      // withHashLocation(),
+      withHashLocation(),
      withViewTransitions(),
      withInMemoryScrolling({scrollPositionRestoration:'top'})),
      provideClientHydration(withEventReplay()),
